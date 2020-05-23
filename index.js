@@ -17,6 +17,6 @@ app.use(function(err, req, res, next){
     console.log(err);
     res.status(422).send({error:err.message});
 });
-app.listen(process.env.ports || 4000, function(){
-    console.log("Listing on port 4000..");
+app.listen(process.env.PORT || 4000, function(){
+    console.log(`Ready on localhost ${process.env.PORT}`);
 });
