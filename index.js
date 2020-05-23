@@ -6,7 +6,10 @@ var cors = require('cors');
 const app = express();
 app.use(cors());
 
-mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/programs',{useNewUrlParser: true});
+const uri = "mongodb+srv://sunnyrk:123456@sunny@programs-aj2kj.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || uri, {useNewUrlParser: true});
+
+// mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/programs',{useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.json());
