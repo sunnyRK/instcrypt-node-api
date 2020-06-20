@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const CreateProgram = require('../models/ProgramModel');
+const models = require('../models/models');
 
-router.post('/createProgram', function(req, res, next) {
-    CreateProgram.create(req.body).then(function(program) {
-        res.send(program)
+router.post('/createTrade', function(req, res, next) {
+    models.create(req.body).then(function(trade) {
+        res.send(trade)
     }).catch(next);
 });
 
-router.get('/getAllProgram', async (req, res) => {
+router.get('/getAllTrades', async (req, res) => {
     try {
-        var result = await CreateProgram.find().exec();
+        var result = await models.find().exec();
         res.send(result);
     } catch (error) {
         res.status(500).send(error);

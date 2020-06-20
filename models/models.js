@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// create test Schema and model 
 const TransactionSchema = new Schema({
     transactionHash:{
         type: String,
@@ -29,6 +28,5 @@ const TransactionSchema = new Schema({
     },
 });
 
-
-const Program = mongoose.model("TransactionsDatabase",TransactionSchema);
-module.exports = Program;
+const Tellor = mongoose.model("TradingDatabase",TransactionSchema);
+module.exports = Tellor;
