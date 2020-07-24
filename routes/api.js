@@ -5,14 +5,14 @@ const walletModels = require('../models/walletmodels');
 const chainlinkmodel = require('../models/chainlinkmodel');
 
 router.post('/createLinkTrade', function(req, res, next) {
-    models.create(req.body).then(function(trade) {
+    chainlinkmodel.create(req.body).then(function(trade) {
         res.send(trade)
     }).catch(next);
 });
 
 router.get('/getAllLinkTrades', async (req, res) => {
     try {
-        var result = await models.find().exec();
+        var result = await chainlinkmodel.find().exec();
         res.send(result);
     } catch (error) {
         res.status(500).send(error);
